@@ -7,15 +7,17 @@ require("plugins")
 require("colorscheme")
 
 require("hop").setup()
-require("lualine").setup()
-require("plugin-config.bufferline")
-require("plugin-config.dashboard")
-require("plugin-config.indent-blankline")
-require("plugin-config.mundo")
-require("plugin-config.nvim-tree")
-require("plugin-config.transparent")
-require("plugin-config.treesitter")
-require("plugin-config.vista")
+require("lualine").setup({
+	options = { theme = "nord" },
+})
+
+require("config.bufferline")
+require("config.dashboard")
+require("config.indent-blankline")
+require("config.nvim-tree")
+require("config.transparent")
+require("config.treesitter")
+require("config.vista")
 
 require("lsp/setup")
 require("lsp/nvim-cmp")

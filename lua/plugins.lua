@@ -7,8 +7,7 @@ return require("packer").startup(function()
 		requires = "kyazdani42/nvim-web-devicons",
 	})
 	-- 主题
-	use("ful1e5/onedark.nvim")
-	use("rmehri01/onenord.nvim")
+	use("NLKNguyen/papercolor-theme")
 	use("xiyaowong/nvim-transparent")
 	-- 首页
 	use("goolord/alpha-nvim")

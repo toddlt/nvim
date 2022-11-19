@@ -1,5 +1,5 @@
 -- utf8
-vim.g.encoding = "UTF-8"
+vim.g.encoding = "utf-8"
 vim.o.fileencoding = "utf-8"
 -- jk移动时光标下上方保留8行
 vim.o.scrolloff = 8
@@ -78,7 +78,9 @@ vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.pumheight = 10
 -- always show tabline
 -- vim.o.showtabline = 2
-vim.g.python3_host_prog = "~/.config/nvim/nvim-python/bin/python3"
+vim.g.python3_host_prog = "~/.config/python-nvim/bin/python3"
 vim.g.mouse = "a"
+
 vim.g.undofile = true
+vim.g.mundo_right = 1
 vim.undodir = "~/.vim/undo"

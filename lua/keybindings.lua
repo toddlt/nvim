@@ -1,7 +1,10 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ";"
+vim.g.maplocalleader = ";"
 local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
+-- 保存和退出绑定快捷键
+map("n", "<leader>w", ":w<CR>", opt)
+map("n", "<leader>q", ":q<CR>", opt)
 -- Visual模式 复制到系统剪贴板
 map("v", "<C-y>", '"+y', opt)
 -- Insert right
@@ -25,10 +28,10 @@ map("n", "<leader>3", "3gt<ct>", opt)
 map("n", "<leader>4", "4gt<ct>", opt)
 map("n", "<leader>5", "5gt<ct>", opt)
 -- hop.nvim
-map("n", "<leader>w", ":HopWord<CR>", opt)
+map("n", "<leader>f", ":HopWord<CR>", opt)
 map("n", "<leader>l", ":HopLine<CR>", opt)
 -- vista.vim
-map("n", "<leader>\\", ":Vista!!<CR>", { noremap = true })
+map("n", "<leader>t", ":Vista!!<CR>", { noremap = true })
 -- mundo
 map("n", "<leader>u", ":MundoToggle<CR>", opt)
 -- fzf.vim
@@ -39,7 +42,7 @@ map("n", ",b", ":Buffers<CR>", opt)
 
 local pluginKeys = {}
 
-map("n", "<leader>e", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>'", ":NvimTreeToggle<CR>", opt)
 
 pluginKeys.nvimTreeList = {
 	-- 打开文件或文件夹
