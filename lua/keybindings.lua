@@ -5,6 +5,12 @@ local opt = { noremap = true, silent = true }
 -- 保存和退出绑定快捷键
 map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>q", ":q<CR>", opt)
+-- 高亮选定词的快捷键
+map("n", "<leader>h", ":call InterestingWords('n')<cr>", opt)
+map("v", "<leader>h", ":call InterestingWords('v')<cr>", opt)
+map("n", "<leader>c", ":call UncolorAllWords()<cr>", opt)
+map("n", "n", ":call WordNavigation(1)<cr>", opt)
+map("n", "N", ":call WordNavigation(0)<cr>", opt)
 -- Visual模式 复制到系统剪贴板
 map("v", "<C-y>", '"+y', opt)
 -- Insert right
@@ -28,7 +34,7 @@ map("n", "<leader>3", "3gt<ct>", opt)
 map("n", "<leader>4", "4gt<ct>", opt)
 map("n", "<leader>5", "5gt<ct>", opt)
 -- hop.nvim
-map("n", "<leader>f", ":HopWord<CR>", opt)
+map("n", "<leader>c", ":HopWord<CR>", opt)
 map("n", "<leader>l", ":HopLine<CR>", opt)
 -- vista.vim
 map("n", "<leader>t", ":Vista!!<CR>", { noremap = true })

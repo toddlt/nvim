@@ -1,6 +1,6 @@
-# neovim config 
+# neovim 配置
 
-## Clone the repo and prepare the enviroments
+## 运行环境配置
 
 ```shell
 git clone https://github.com/toddlt/nvim ~/.config/nvim
@@ -13,7 +13,7 @@ cd ~/.config && python3 -m venv python-nvim
 cd $HOME && ./.config/python-nvim/bin/python3 -m pip install pynvim
 ```
 
-## In vim command line
+## 检查运行状态 
 
 ```vim
 #install the plugin
@@ -21,5 +21,3 @@ cd $HOME && ./.config/python-nvim/bin/python3 -m pip install pynvim
 #ensure neovim work properly
 :checkheath
 ```
-
-### No LSP version is on branch `no-lsp`.

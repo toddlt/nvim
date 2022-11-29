@@ -39,6 +39,8 @@ return require("packer").startup(function()
 			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 		end,
 	})
+	-- 高亮跳转
+	use("lfv89/vim-interestingwords")
 	-- 函数列表
 	use("liuchengxu/vista.vim")
 	-- 代码补全
@@ -65,9 +67,9 @@ return require("packer").startup(function()
 			})
 		end,
 	})
-	-- Github copilot
-	use({ "github/copilot.vim" })
-	-- 格式化代码
+	-- -- Github copilot
+	-- use({ "github/copilot.vim" })
+	-- -- 格式化代码
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "rlue/vim-barbaric" })
 end)
