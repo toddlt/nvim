@@ -143,15 +143,46 @@ pluginKeys.cmp = function(cmp)
 				end
 			end,
 		}),
-		["<Down>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
-		["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
-		["<C-e>"] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
+		["<Down>"] = cmp.mapping(
+			cmp.mapping.select_next_item({
+				behavior = cmp.SelectBehavior.Select,
+			}),
+			{ "i", "c" }
+		),
+		["<C-n>"] = cmp.mapping(
+			cmp.mapping.select_next_item({
+				behavior = cmp.SelectBehavior.Select,
+			}),
+			{ "i", "c" }
+		),
+		["<Up>"] = cmp.mapping(
+			cmp.mapping.select_prev_item({
+				behavior = cmp.SelectBehavior.Select,
+			}),
+			{ "i", "c" }
+		),
+		["<C-p>"] = cmp.mapping(
+			cmp.mapping.select_prev_item({
+				behavior = cmp.SelectBehavior.Select,
+			}),
+			{ "i", "c" }
+		),
+		["<C-e>"] = cmp.mapping({
+			i = cmp.mapping.close(),
+			c = cmp.mapping.close(),
+		}),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<CR>"] = cmp.mapping({
-			i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+			i = cmp.mapping.confirm({
+				behavior = cmp.ConfirmBehavior.Replace,
+				select = true,
+			}),
 			c = function(fallback)
 				if cmp.visible() then
-					cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+					cmp.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
+						select = true,
+					})
 				else
 					fallback()
 				end
