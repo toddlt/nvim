@@ -1,1 +1,1 @@
-vim.g.vista_sidebar_width = 40
+vim.g.vista_sidebar_width = 30

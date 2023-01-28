@@ -11,7 +11,6 @@ null_ls.setup({
 	sources = {
 		-- StyLua
 		formatting.stylua,
-		formatting.gofmt,
 		-- frontend
 		formatting.prettier.with({ -- 只比默认配置少了 markdown
 			filetypes = {

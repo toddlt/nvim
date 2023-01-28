@@ -5,6 +5,11 @@ local opt = { noremap = true, silent = true }
 -- 保存和退出绑定快捷键
 map("n", "<leader>w", ":w<CR>", opt)
 map("n", "<leader>q", ":q<CR>", opt)
+-- 映射窗口调转的快捷键
+map("n", "<C-j>", "<C-w>j", opt)
+map("n", "<C-k>", "<C-w>k", opt)
+map("n", "<C-h>", "<C-w>h", opt)
+map("n", "<C-l>", "<C-w>l", opt)
 -- 高亮选定词的快捷键
 map("n", "<leader>h", ":call InterestingWords('n')<cr>", opt)
 map("v", "<leader>h", ":call InterestingWords('v')<cr>", opt)
@@ -52,8 +57,9 @@ map("n", "<leader>'", ":NvimTreeToggle<CR>", opt)
 
 pluginKeys.nvimTreeList = {
 	-- 打开文件或文件夹
-	{ key = { "<CR>", "o", "<2-LeftMouse>" }, action = "tabnew" },
-	{ key = "e", action = "edit" },
+	-- { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "tabnew" },
+	-- { key = "e", action = "edit" },
+	{ key = { "<CR>", "o", "e", "<2-LeftMouse>" }, action = "edit" },
 	-- 分屏打开文件
 	{ key = "s", action = "vsplit" },
 	-- 显示隐藏文件
@@ -66,7 +72,7 @@ pluginKeys.nvimTreeList = {
 	{ key = "x", action = "cut" },
 	{ key = "c", action = "copy" },
 	{ key = "p", action = "paste" },
-	{ key = "o", action = "system_open" },
+	-- { key = "o", action = "system_open" },
 }
 
 pluginKeys.mapLSP = function(mapbuf)
