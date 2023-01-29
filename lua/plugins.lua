@@ -15,13 +15,20 @@ return require("packer").startup(function()
 	use("lukas-reineke/indent-blankline.nvim")
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 	-- 状态栏
-	use("nvim-lualine/lualine.nvim")
+	use({
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("lualine").setup({
+				options = { theme = "nord" },
+			})
+		end,
+	})
 	-- 编辑历史
 	use("simnalamburt/vim-mundo")
 	-- 语法高亮，折叠代码，缩进处理
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	-- lsp支持
-	use({ "neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer" })
+    use({ "neovim/nvim-lspconfig", "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" })
 	-- 模糊匹配工具
 	use("junegunn/fzf")
 	use("junegunn/fzf.vim")
@@ -67,8 +74,6 @@ return require("packer").startup(function()
 			})
 		end,
 	})
-	-- -- Github copilot
-	-- use({ "github/copilot.vim" })
 	-- -- 格式化代码
 	use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "rlue/vim-barbaric" })

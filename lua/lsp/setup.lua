@@ -4,25 +4,26 @@ local lsp_servers = {
 	"pyright",
 	"jsonls",
 	"bashls",
+	"cmake",
+	"clangd",
 }
--- using plug "nvim-lsp-installer" to ensure the installation
--- should before the lsp config
-require("nvim-lsp-installer").setup({
-	ensure_installed = lsp_servers,
-	automatic_installation = true,
+
+require("mason").setup({
 	ui = {
 		icons = {
-			server_installed = "✓",
-			server_pending = "➜",
-			server_uninstalled = "✗",
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
 		},
 	},
 })
--- 需要特殊配置的lsp server
--- https://github.com/williamboman/nvim-lsp-installer#available-lsps
--- { key: 语言 value: 配置文件 }
+
+require("mason-lspconfig").setup({
+	ensure_installed = lsp_servers,
+})
+
 local lsp_server_configs = {
-	sumneko_lua = require("lsp.lua"), -- /lua/lsp/lua
+	sumneko_lua = require("lsp/sumneko_lua"), -- /lua/lsp/lua
 }
 
 local lspconfig = require("lspconfig")
