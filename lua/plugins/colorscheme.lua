@@ -1,9 +1,12 @@
 return {
-  { "NLKNguyen/papercolor-theme" },
   {
-    "LazyVim/LazyVim",
+    "catppuccin/nvim",
+    lazy = true,
     opts = {
-      colorscheme = "PaperColor",
+      background = {
+        light = "latte",
+        dark = "mocha",
+      },
     },
-  }
+  },
 }

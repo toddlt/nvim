@@ -44,3 +44,10 @@ vim.opt.tabstop = 2
 vim.opt.expandtab = true
 -- 设置缩进为2个空格
 vim.opt.shiftwidth = 2
+-- 设置折叠方式为手动
+vim.opt.foldmethod = "manual"
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.xpu" },
+  command = "set filetype=cuda",
+})
