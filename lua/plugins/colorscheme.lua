@@ -2,6 +2,7 @@ return {
   {
     "catppuccin/nvim",
     lazy = true,
+    name = "catppuccin",
     opts = {
       background = {
         light = "latte",
