@@ -1,6 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local lazyrepo = "https://github.com/folke/lazy.nvim"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
@@ -56,6 +56,6 @@ require("lazy").setup({
     timeout = 60, -- 当超过1分钟后杀死进程
     -- 地址模板定义
     -- url_format = "git@github.com:%s",
-    url_format = "https://ghp.ci/https://github.com/%s",
+    url_format = "https://gh-proxy.com/https://github.com/%s",
   },
 })
