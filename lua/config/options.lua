@@ -4,6 +4,9 @@
 
 -- 设置 leader key
 vim.g.mapleader = ";"
+vim.g.autoformat = false
+vim.g.snacks_animate = false
+
 vim.g.interestingWordsTermColors = { "154", "121", "211", "137", "214", "222" }
 vim.g.interestingWordsGUIColors = { "#8CCBEA", "#A4E57E", "#FFDB72", "#FF7272", "#FFB3FF", "#9999FF" }
 
@@ -11,7 +14,7 @@ vim.opt.wrap = true
 vim.opt.list = true
 vim.opt.listchars = { space = "·" }
 -- 设置剪贴板
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 -- 显示行号
 vim.opt.number = true
 vim.opt.relativenumber = true
