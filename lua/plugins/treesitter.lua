@@ -4,6 +4,7 @@ return {
     opts = {
       ensure_installed = {
         "bash",
+        "cpp",
         "json",
         "lua",
         "markdown",
@@ -11,6 +12,8 @@ return {
         "python",
         "vim",
         "yaml",
+        "mlir",
+        "tablegen",
       },
     },
   },
