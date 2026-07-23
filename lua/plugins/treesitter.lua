@@ -5,6 +5,7 @@ return {
       ensure_installed = {
         "bash",
         "cpp",
+        "cuda",
         "json",
         "lua",
         "markdown",
