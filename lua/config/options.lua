@@ -13,8 +13,7 @@ vim.g.interestingWordsGUIColors = { "#8CCBEA", "#A4E57E", "#FFDB72", "#FF7272", 
 vim.diagnostic.enable(false)
 
 vim.opt.wrap = true
-vim.opt.list = true
-vim.opt.listchars = { space = "·" }
+vim.opt.list = false
 -- 设置剪贴板
 vim.opt.clipboard = vim.env.SSH_CONNECTION and "" or "unnamedplus"
 -- 显示行号
