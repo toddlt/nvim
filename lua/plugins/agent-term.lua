@@ -5,6 +5,11 @@ return {
     main = "agent-term",
     lazy = false,
     opts = {
+      shell = {
+        enabled = true,
+        -- command defaults to vim.o.shell; override it only for a specific environment.
+        flags = { "-ic" },
+      },
       -- Add another CLI here; the shared implementation does not need to change.
       agents = {
         claude = {
@@ -17,9 +22,7 @@ return {
           },
         },
         codex = {
-          -- Load the interactive zsh function that supplies Codex's proxy environment.
-          -- The extra argv entry becomes zsh's $0, leaving future args available in "$@".
-          command = { "zsh", "-ic", [[codex "$@"]], "agent-term-codex" },
+          command = { "codex" },
           key = "<leader>ax",
           order = 2,
           variants = {},
