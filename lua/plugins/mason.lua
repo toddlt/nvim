@@ -4,7 +4,7 @@ return {
     opts = {
       ensure_installed = {
         "clangd",
-        "flake8",
+        "ruff",
         "pyright",
         "shellcheck",
         "shfmt",

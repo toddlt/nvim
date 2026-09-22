@@ -179,24 +179,8 @@ local function terminal_keymaps(buf)
   end
 end
 
-local function shell_command(command)
-  if command:match("^[%a_][%w_.-]*$") then
-    return command
-  end
-  return vim.fn.shellescape(command)
-end
-
-local function command_with_args(agent_name, agent, args)
-  local argv = vim.list_extend(vim.deepcopy(agent.command), args or {})
-  if agent.direct or not config.shell.enabled then
-    return argv
-  end
-
-  local command = table.remove(argv, 1)
-  local shell_argv = { config.shell.command }
-  vim.list_extend(shell_argv, config.shell.flags)
-  vim.list_extend(shell_argv, { shell_command(command) .. [[ "$@"]], "agent-term-" .. agent_name })
-  return vim.list_extend(shell_argv, argv)
+local function command_with_args(agent, args)
+  return vim.list_extend(vim.deepcopy(agent.command), args or {})
 end
 
 local function start(instance_id, project_id, cwd, agent_name, agent, args)
@@ -213,7 +197,7 @@ local function start(instance_id, project_id, cwd, agent_name, agent, args)
   if agent.env then
     job_options.env = agent.env
   end
-  local started, job = pcall(vim.fn.jobstart, command_with_args(agent_name, agent, args), job_options)
+  local started, job = pcall(vim.fn.jobstart, command_with_args(agent, args), job_options)
   if not started or job < 1 then
     hide_buffer(buf)
     pcall(vim.api.nvim_buf_delete, buf, { force = true })
@@ -443,20 +427,10 @@ end
 function M.setup(opts)
   assert(type(opts) == "table", "agent-term.setup() requires a configuration table")
   config = vim.deepcopy(opts)
-  config.shell = vim.tbl_deep_extend("force", {
-    enabled = true,
-    command = vim.o.shell,
-    flags = { "-ic" },
-  }, config.shell or {})
-  assert(type(config.shell.command) == "string" and config.shell.command ~= "", "agent-term: shell command is empty")
-  assert(vim.islist(config.shell.flags), "agent-term: shell flags must be an argv list")
   assert(type(config.agents) == "table", "agent-term: agents must be a table")
   for name, agent in pairs(config.agents) do
     local valid_command = vim.islist(agent.command) and #agent.command > 0
     assert(valid_command, "agent-term: command must be a non-empty argv list for " .. name)
-    for _, argument in ipairs(agent.command) do
-      assert(type(argument) == "string", "agent-term: command arguments must be strings for " .. name)
-    end
     agent.variants = agent.variants or {}
   end
   if refresh_timer then

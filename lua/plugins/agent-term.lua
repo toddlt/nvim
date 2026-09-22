@@ -5,11 +5,6 @@ return {
     main = "agent-term",
     lazy = false,
     opts = {
-      shell = {
-        enabled = true,
-        -- command defaults to vim.o.shell; override it only for a specific environment.
-        flags = { "-ic" },
-      },
       -- Add another CLI here; the shared implementation does not need to change.
       agents = {
         claude = {

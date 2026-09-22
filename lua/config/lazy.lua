@@ -56,6 +56,6 @@ require("lazy").setup({
     timeout = 60, -- 当超过1分钟后杀死进程
     -- 地址模板定义
     -- url_format = "git@github.com:%s",
-    url_format = "https://gh-proxy.com/https://github.com/%s",
+    -- url_format = "https://gh-proxy.com/https://github.com/%s",
   },
 })
